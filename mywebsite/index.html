@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+        <div>
+            <label for="programTitle">Program Title:</label>
+            <input type="text" id="programTitle" required>
+            <span>On</span>
+            <input type="date" id="programDate" required>
+            <span>(Venue)</span>
+            <input type="text" id="programVenue" required>
+        </div>
+        <div>
+            <label for="title">Title:</label>
+            <select id="title" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Ms.">Ms.</option>
+            </select>
+        </div>
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+        </div>
+        <div>
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation" required>
+        </div>
+        <div>
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" required>
+        </div>
+        <div>
+            <label for="orgCategory">Organization Category:</label>
+            <select id="orgCategory" required>
+                <option value="Customs">Customs</option>
+                <option value="DG Shipping">DG Shipping</option>
+                <!-- Add more options here -->
+                <option value="others">Others (please specify)</option>
+            </select>
+            <input type="text" id="otherOrgCategory">
+        </div>
+        <div>
+            <label for="memberOfAssociation">Member of Association (If any):</label>
+            <select id="memberOfAssociation" required>
+                <option value="CSLA">CSLA</option>
+                <option value="MANSA">MANSA</option>
+                <!-- Add more options here -->
+                <option value="others">Others (please specify)</option>
+            </select>
+            <input type="text" id="otherAssociation">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <button id="sendOTP">Send OTP</button>
+        </div>
+        <div>
+            <label for="mobileNo">Mobile No.:</label>
+            <input type="tel" id="mobileNo" required>
+        </div>
+        <div>
+            <label for="attendingDay">Attending Program on:</label>
+            <select id="attendingDay" required>
+                <option value="Day 1">Day 1</option>
+                <option value="Day 2">Day 2</option>
+                <option value="All">All</option>
+            </select>
+        </div>
+        <div>
+            <label for="otp">Confirm OTP:</label>
+            <input type="text" id="otp" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmationMessage"></div>
+
+    <script>
+        // Generate and send OTP (for demonstration purposes only)
+        document.getElementById('sendOTP').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
+            // In a real application, you'd send this OTP to the user's email using a server-side script
+            console.log(`Sending OTP ${otp} to ${email}`);
+        });
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const otpInput = document.getElementById('otp').value;
+            // In a real application, you'd validate the OTP here by sending it to the server for verification
+            // For this demonstration, we'll assume OTP validation is successful
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent = 'Nominations successfully submitted. Confirmation will be sent after approval.';
+        });
+    </script>
+</body>
+</html>
+
